@@ -120,5 +120,27 @@ namespace CBZ_Viewer
                 ZoomSize++;
             }
         }
+
+        private void Magnify()
+        {
+            var f = new Magnify()
+            {
+                Size = new Size(150, 150),
+                AutoClose = true,
+                HideCursor = true,
+                ZoomFactor = 2,
+                NearestNeighborInterpolation = false
+            };
+            f.Show();
+        }
+
+        protected override void OnKeyDown(KeyEventArgs e)
+        {
+            base.OnKeyDown(e);
+
+            if (e.KeyCode == Keys.Escape) {Dispose();}
+            else if (e.Control && e.KeyCode == Keys.M) Magnify();
+        }
+
     }
 }
