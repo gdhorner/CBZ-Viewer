@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Diagnostics;
+using System.Drawing;
+using System.Windows.Forms;
+using Xceed.Wpf.Toolkit;
 
-namespace CBZ_Viewer
+namespace CBZ_Library
 {
     public static class GlobalFunctions
     {

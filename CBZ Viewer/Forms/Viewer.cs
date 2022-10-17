@@ -1,13 +1,5 @@
-﻿using CBZ_Viewer.Models;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using CBZ_Viewer.Functions;
+using CBZ_Viewer.Models;
 
 namespace CBZ_Viewer
 {
@@ -52,10 +44,10 @@ namespace CBZ_Viewer
         private void Viewer_FormClosing(object sender, FormClosingEventArgs e)
         {
             Directory.Delete(App.ComicExtractLocation + "\\" + comicBook.SeriesId, true);
-           // if (MainScreen.UserData.Settings.SaveLastPage)
-           // {
-           //     comicIssue.CurrentPage = currentPage + 1;
-           // }
+            // if (MainScreen.UserData.Settings.SaveLastPage)
+            // {
+            //     comicIssue.CurrentPage = currentPage + 1;
+            // }
         }
 
         private void pnlLeft_Click(object sender, EventArgs e)
@@ -70,7 +62,7 @@ namespace CBZ_Viewer
 
         async void NextPage()
         {
-            if(currentPage < comicBook.Pages - 1)
+            if (currentPage < comicBook.Pages - 1)
             {
                 currentPage++;
                 pbPageImage.Image.Dispose();
@@ -85,8 +77,6 @@ namespace CBZ_Viewer
                 }
             }
         }
-
-
 
         async void PreviousPage()
         {
@@ -121,7 +111,7 @@ namespace CBZ_Viewer
             }
         }
 
-        private void Magnify()
+        private static void Magnify()
         {
             var f = new Magnify()
             {
@@ -138,9 +128,10 @@ namespace CBZ_Viewer
         {
             base.OnKeyDown(e);
 
-            if (e.KeyCode == Keys.Escape) {Dispose();}
-            else if (e.Control && e.KeyCode == Keys.M) Magnify();
+            if (e.KeyCode == Keys.Escape) { Dispose(); }
+            else if (e.KeyCode == Keys.Left) { NextPage(); }
+            else if (e.KeyCode == Keys.Right) { PreviousPage(); }
+            else if (e.Control && e.KeyCode == Keys.M) { Magnify(); }
         }
-
     }
 }

@@ -44,6 +44,7 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Name = "Magnify";
             this.Text = "Lens";
+            this.Load += new System.EventHandler(this.Magnify_Load);
             this.ResumeLayout(false);
 
         }

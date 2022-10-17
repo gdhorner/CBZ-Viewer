@@ -1,6 +1,3 @@
-using System.IO.Compression;
-using System.IO;
-using static CBZ_Viewer.ComicFunctions;
 using CBZ_Viewer.Models;
 
 namespace CBZ_Viewer
@@ -17,30 +14,38 @@ namespace CBZ_Viewer
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            OpenFileDialog openFileDialog1 = new OpenFileDialog();
-
-            openFileDialog1.InitialDirectory = "c:\\";
-            openFileDialog1.Filter = "CBZ Files (*.cbz)|*.cbz";
-            openFileDialog1.FilterIndex = 0;
-            openFileDialog1.RestoreDirectory = true;
-
-            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            OpenFileDialog openFile = new()
             {
-                ComicBook comic = new ComicBook()
+                InitialDirectory = "c:\\",
+                Filter = "CBZ Files (*.cbz)|*.cbz",
+                FilterIndex = 0,
+                RestoreDirectory = true
+            };
+
+            if (openFile.ShowDialog() == DialogResult.OK)
+            {
+                if (string.IsNullOrWhiteSpace(Path.GetFileName(Path.GetDirectoryName(openFile.FileName)))) { return; }
+
+                ComicBook comic = new()
                 {
-                    Location = openFileDialog1.FileName,
-                    ComicName = Path.GetFileName(Path.GetDirectoryName(openFileDialog1.FileName))
-                    
+                    Location = openFile.FileName,
+                    ComicName = Path.GetFileName(Path.GetDirectoryName(openFile.FileName))
+
                 };
 
                 OpenReader(comic);
             }
         }
 
-        public void OpenReader(ComicBook comicBook)
+        public static void OpenReader(ComicBook comicBook)
         {
             Viewer viewer = new Viewer(comicBook);
             viewer.Show();
+        }
+
+        private void App_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

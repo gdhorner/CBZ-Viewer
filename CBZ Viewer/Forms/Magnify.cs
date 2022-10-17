@@ -1,20 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.Drawing.Drawing2D;
 
 namespace CBZ_Viewer
 {
     public partial class Magnify : Form
     {
-        private Bitmap scrBmp;
-        private Graphics scrGrp;
+        private Bitmap? scrBmp;
+        private Graphics? scrGrp;
         private bool mouseDown;
         public int ZoomFactor { get; set; } = 2;
         public bool HideCursor { get; set; } = true;
@@ -75,37 +66,25 @@ namespace CBZ_Viewer
             Top = p.Y - Height / 2;
         }
 
-        protected override void OnMouseDown(MouseEventArgs e)
-        {
-            base.OnMouseDown(e);
-
-            if (e.Button == MouseButtons.Left)
-            {
-                mouseDown = true;
-                if (HideCursor) Cursor.Hide();
-            }
-        }
-
         protected override void OnMouseMove(MouseEventArgs e)
         {
             base.OnMouseMove(e);
             Invalidate();
         }
 
-        protected override void OnMouseUp(MouseEventArgs e)
-        {
-            base.OnMouseUp(e);
 
-            mouseDown = false;
-            if (HideCursor) Cursor.Show();
-            if (AutoClose) Dispose();
-        }
 
         protected override void OnKeyDown(KeyEventArgs e)
         {
             base.OnKeyDown(e);
 
             if (e.KeyCode == Keys.Escape) Dispose();
+            else if (e.Control && e.KeyCode == Keys.M)
+            {
+                mouseDown = false;
+                if (HideCursor) Cursor.Show();
+                if (AutoClose) Dispose();
+            }
         }
 
         protected override void OnPaint(PaintEventArgs e)
@@ -132,5 +111,9 @@ namespace CBZ_Viewer
             if (scrBmp != null) e.Graphics.DrawImage(scrBmp, 0, 0);
         }
 
+        private void Magnify_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
