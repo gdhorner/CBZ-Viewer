@@ -68,13 +68,13 @@ namespace CBZ_Viewer
         {
             endX = e.X;
             endY = e.Y;
-
-            mouseDown = false;
+            Invalidate();
         }
 
         protected override void OnPaint(PaintEventArgs e)
         {
             Pen blackPen = new Pen(Color.Black);
+            blackPen.DashStyle = DashStyle.Dash;
             Rectangle rect = new(startX, startY, endX - startX, endY - startY);
             e.Graphics.DrawRectangle(blackPen, rect);
         }
