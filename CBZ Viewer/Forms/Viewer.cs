@@ -43,7 +43,7 @@ namespace CBZ_Viewer
 
         private void Viewer_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Directory.Delete(App.ComicExtractLocation + "\\" + comicBook.SeriesId, true);
+            Directory.Delete(CBZViewer.ComicExtractLocation + "\\" + comicBook.SeriesId, true);
             // if (MainScreen.UserData.Settings.SaveLastPage)
             // {
             //     comicIssue.CurrentPage = currentPage + 1;

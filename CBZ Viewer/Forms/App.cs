@@ -11,12 +11,12 @@ using System.Windows.Forms;
 
 namespace CBZ_Viewer
 {
-    public partial class App : Form
+    public partial class CBZViewer : Form
     {
 
         public static string ComicExtractLocation = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\CBZ Viewer\comics";
 
-        public App()
+        public CBZViewer()
         {
             InitializeComponent();
         }
@@ -51,6 +51,5 @@ namespace CBZ_Viewer
             Viewer viewer = new(comicBook);
             viewer.Show();
         }
-
     }
 }

@@ -7,7 +7,7 @@ namespace CBZ_Viewer.Functions
     {
         public static Task<string[]> ReadComic(ComicBook comic)
         {
-            string dir = Directory.CreateDirectory(App.ComicExtractLocation + "\\" + comic.SeriesId + "\\" + comic.IssueId).FullName;
+            string dir = Directory.CreateDirectory(CBZViewer.ComicExtractLocation + "\\" + comic.SeriesId + "\\" + comic.IssueId).FullName;
 
             using (ZipArchive archive = ZipFile.OpenRead(comic.Location))
             {
