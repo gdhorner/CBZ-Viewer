@@ -1,6 +1,6 @@
 ﻿namespace CBZ_Viewer
 {
-    partial class Magnify
+    partial class GLens
     {
         /// <summary>
         /// Required designer variable.
@@ -17,13 +17,6 @@
             {
                 components.Dispose();
             }
-
-            if (disposing)
-            {
-                scrBmp?.Dispose();
-                scrGrp?.Dispose();
-            }
-
             base.Dispose(disposing);
         }
 
@@ -37,13 +30,14 @@
         {
             this.SuspendLayout();
             // 
-            // Magnify
+            // GLens
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Name = "Magnify";
-            this.Text = "Lens";
+            this.Name = "GLens";
+            this.Text = "GLens";
+            this.Shown += new System.EventHandler(this.OnShown);
             this.ResumeLayout(false);
 
         }

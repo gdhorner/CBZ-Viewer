@@ -110,10 +110,5 @@ namespace CBZ_Viewer
 
             if (scrBmp != null) e.Graphics.DrawImage(scrBmp, 0, 0);
         }
-
-        private void Magnify_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

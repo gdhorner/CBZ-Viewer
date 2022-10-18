@@ -123,6 +123,14 @@ namespace CBZ_Viewer
             };
             f.Show();
         }
+        private static void GLens()
+        {
+            var f = new GLens()
+            {
+                
+            };
+            f.Show();
+        }
 
         protected override void OnKeyDown(KeyEventArgs e)
         {
@@ -132,11 +140,8 @@ namespace CBZ_Viewer
             else if (e.KeyCode == Keys.Left) { NextPage(); }
             else if (e.KeyCode == Keys.Right) { PreviousPage(); }
             else if (e.Control && e.KeyCode == Keys.M) { Magnify(); }
+            else if (e.Control && e.KeyCode == Keys.L) { GLens(); }
         }
 
-        private void pbPageImage_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
