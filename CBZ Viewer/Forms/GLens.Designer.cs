@@ -34,10 +34,16 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.BackColor = System.Drawing.Color.White;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.ClientSize = new System.Drawing.Size(1132, 597);
+            this.Cursor = System.Windows.Forms.Cursors.Cross;
+            this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Name = "GLens";
+            this.Opacity = 0D;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "GLens";
-            this.Shown += new System.EventHandler(this.OnShown);
+            this.TransparencyKey = System.Drawing.Color.Transparent;
             this.ResumeLayout(false);
 
         }

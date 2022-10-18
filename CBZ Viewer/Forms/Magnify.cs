@@ -49,6 +49,7 @@ namespace CBZ_Viewer
         {
             if (scrBmp == null)
             {
+
                 var sz = Screen.FromControl(this).Bounds.Size;
 
                 scrBmp = new Bitmap(sz.Width, sz.Height);
@@ -78,8 +79,7 @@ namespace CBZ_Viewer
         {
             base.OnKeyDown(e);
 
-            if (e.KeyCode == Keys.Escape) Dispose();
-            else if (e.Control && e.KeyCode == Keys.M)
+            if (e.KeyCode == Keys.Escape || e.Control && e.KeyCode == Keys.M)
             {
                 mouseDown = false;
                 if (HideCursor) Cursor.Show();
