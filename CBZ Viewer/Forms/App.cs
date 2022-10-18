@@ -1,4 +1,13 @@
-using CBZ_Viewer.Models;
+﻿using CBZ_Viewer.Models;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace CBZ_Viewer
 {
@@ -12,7 +21,7 @@ namespace CBZ_Viewer
             InitializeComponent();
         }
 
-        private void openToolStripMenuItem_Click(object sender, EventArgs e)
+        private void OpenFile(object sender, EventArgs e)
         {
             OpenFileDialog openFile = new()
             {
@@ -39,13 +48,9 @@ namespace CBZ_Viewer
 
         public static void OpenReader(ComicBook comicBook)
         {
-            Viewer viewer = new Viewer(comicBook);
+            Viewer viewer = new(comicBook);
             viewer.Show();
         }
 
-        private void App_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

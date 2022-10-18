@@ -133,5 +133,10 @@ namespace CBZ_Viewer
             else if (e.KeyCode == Keys.Right) { PreviousPage(); }
             else if (e.Control && e.KeyCode == Keys.M) { Magnify(); }
         }
+
+        private void pbPageImage_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

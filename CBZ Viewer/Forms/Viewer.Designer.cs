@@ -76,6 +76,7 @@ namespace CBZ_Viewer
             this.pbPageImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbPageImage.TabIndex = 0;
             this.pbPageImage.TabStop = false;
+            this.pbPageImage.Click += new System.EventHandler(this.pbPageImage_Click);
             // 
             // pnlLeft
             // 
