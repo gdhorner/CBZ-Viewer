@@ -9,15 +9,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Google.Cloud.Vision.V1;
+using IronOcr;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
-using Image = Google.Cloud.Vision.V1.Image;
 
 namespace CBZ_Viewer
 {
     public partial class GLens : Form
     {
         private const string creds = "C:\\Users\\Gavin\\AppData\\Roaming\\gcloud\\application_default_credentials.json";
+        private int startX, startY, endX, endY, scanHeight, scanWidth;
+        private bool mouseDown;
+        private Bitmap? scrBmp;
+        private Graphics? scrGrp;
 
         public GLens()
         {
@@ -31,31 +34,21 @@ namespace CBZ_Viewer
             Size = Screen.FromControl(this).Bounds.Size;
             CenterToScreen();
 
-           // SetStyle(ControlStyles.SupportsTransparentBackColor, true);
-           // this.BackColor = Color.Transparent;
-           // this.TransparencyKey = Color.Transparent;
+            SetStyle(ControlStyles.SupportsTransparentBackColor, true);
+            this.BackColor = Color.Transparent;
+            this.TransparencyKey = Color.Transparent;
 
         }
 
-       // protected override void OnPaintBackground(PaintEventArgs e) { /* Ignore */ }
+         protected override void OnPaintBackground(PaintEventArgs e) { /* Ignore */ }
 
-
-       /* private void GLens_Analyze()
+        private void GLens_Analyze(Image image)
         {
-            var client = ImageAnnotatorClient.Create();
-            var image = Image.FromUri("gs://cloud-vision-codelab/otter_crossing.jpg");
-            var response = client.DetectText(image);
-            foreach (var annotation in response)
-            {
-                if (annotation.Description != null)
-                {
-                    Console.WriteLine(annotation.Description);
-                }
-            }
-        }*/
-
-        int startX, startY, endX, endY;
-        bool mouseDown;
+            var Ocr = new IronTesseract();
+            Ocr.Language = OcrLanguage.JapaneseBest;
+            var Result = Ocr.Read(image);
+            Console.WriteLine(Result.Text);
+        }
 
         protected override void OnMouseDown(MouseEventArgs e)
         {
@@ -64,19 +57,56 @@ namespace CBZ_Viewer
             startY = e.Y;
         }
 
+        protected override void OnMouseMove(MouseEventArgs e)
+        {
+            if (mouseDown)
+            {
+                endX = e.X;
+                endY = e.Y;
+                scanHeight = Math.Abs(endY - startY);
+                scanWidth = Math.Abs(endX - startX);
+                Invalidate();
+            }
+        }
+
         protected override void OnMouseUp(MouseEventArgs e)
         {
-            endX = e.X;
-            endY = e.Y;
-            Invalidate();
+            mouseDown = false;
+
+            if (scrBmp == null)
+            {
+                scrBmp = new Bitmap(scanWidth, scanHeight);
+                scrGrp = Graphics.FromImage(scrBmp);
+            }
+
+            scrGrp.CopyFromScreen(startX, startY, 0, 0, scrBmp.Size);
         }
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            Pen blackPen = new Pen(Color.Black);
+            Pen blackPen = new(Color.Black);
             blackPen.DashStyle = DashStyle.Dash;
-            Rectangle rect = new(startX, startY, endX - startX, endY - startY);
+            Rectangle rect = new(startX, startY, scanWidth, scanHeight);
             e.Graphics.DrawRectangle(blackPen, rect);
+
+            if (scrBmp != null)
+            {
+                var pos = Cursor.Position;
+                var cr = RectangleToScreen(rect);
+                var dY = cr.Top - Top;
+                var dX = cr.Left - Left;
+
+                e.Graphics.TranslateTransform(Width / 2, Height / 2);
+                e.Graphics.TranslateTransform(-pos.X - dX, -pos.Y - dY);
+
+                e.Graphics.InterpolationMode = InterpolationMode.NearestNeighbor;
+                e.Graphics.PixelOffsetMode = PixelOffsetMode.Half;
+
+                if (scrBmp != null) e.Graphics.DrawImage(scrBmp, 0, 0);
+
+                scrBmp.Save("image.png");
+                GLens_Analyze(scrBmp);
+            }
         }
 
 
