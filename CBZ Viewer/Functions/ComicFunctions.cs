@@ -1,13 +1,13 @@
-﻿using CBZ_Viewer.Models;
+﻿using MangaBu.Models;
 using System.IO.Compression;
 
-namespace CBZ_Viewer.Functions
+namespace MangaBu.Functions
 {
     internal class ComicFunctions
     {
         public static Task<string[]> ReadComic(ComicBook comic)
         {
-            string dir = Directory.CreateDirectory(CBZViewer.ComicExtractLocation + "\\" + comic.SeriesId + "\\" + comic.IssueId).FullName;
+            string dir = Directory.CreateDirectory(MangaBu.ComicExtractLocation + "\\" + comic.SeriesId + "\\" + comic.IssueId).FullName;
 
             using (ZipArchive archive = ZipFile.OpenRead(comic.Location))
             {

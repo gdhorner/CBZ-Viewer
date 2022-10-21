@@ -1,4 +1,4 @@
-﻿using CBZ_Viewer.Models;
+﻿using MangaBu.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,14 +9,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace CBZ_Viewer
+namespace MangaBu
 {
-    public partial class CBZViewer : Form
+    public partial class MangaBu : Form
     {
 
         public static string ComicExtractLocation = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\CBZ Viewer\comics";
 
-        public CBZViewer()
+        public MangaBu()
         {
             InitializeComponent();
         }

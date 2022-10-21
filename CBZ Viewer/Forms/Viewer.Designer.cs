@@ -1,6 +1,6 @@
-﻿using CBZ_Viewer.Properties;
+﻿using MangaBu.Properties;
 
-namespace CBZ_Viewer
+namespace MangaBu
 {
     partial class Viewer
     {

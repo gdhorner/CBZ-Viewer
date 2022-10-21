@@ -1,4 +1,4 @@
-﻿namespace CBZ_Viewer.Models
+﻿namespace MangaBu.Models
 {
     public class ComicBook
     {

@@ -12,9 +12,9 @@ using System.Windows.Forms;
 using IronOcr;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
 
-namespace CBZ_Viewer
+namespace MangaBu
 {
-    public partial class GLens : Form
+    public partial class ScanText : Form
     {
         private const string creds = "C:\\Users\\Gavin\\AppData\\Roaming\\gcloud\\application_default_credentials.json";
         private int startX, startY, endX, endY, scanHeight, scanWidth;
@@ -22,7 +22,7 @@ namespace CBZ_Viewer
         private Bitmap? scrBmp;
         private Graphics? scrGrp;
 
-        public GLens()
+        public ScanText()
         {
             System.Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", creds);
 

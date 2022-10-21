@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32922.545
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CBZ Viewer", "CBZ Viewer\CBZ Viewer.csproj", "{0622192C-5409-4BD4-BEB9-885A5165ED64}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MangaBu", "CBZ Viewer\MangaBu.csproj", "{0622192C-5409-4BD4-BEB9-885A5165ED64}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

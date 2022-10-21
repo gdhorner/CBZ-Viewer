@@ -1,4 +1,4 @@
-﻿namespace CBZ_Viewer
+﻿namespace MangaBu
 {
     partial class Magnify
     {
@@ -43,7 +43,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Name = "Magnify";
-            this.Text = "Lens";
             this.ResumeLayout(false);
 
         }

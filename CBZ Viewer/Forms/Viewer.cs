@@ -1,7 +1,7 @@
-﻿using CBZ_Viewer.Functions;
-using CBZ_Viewer.Models;
+﻿using MangaBu.Functions;
+using MangaBu.Models;
 
-namespace CBZ_Viewer
+namespace MangaBu
 {
     public partial class Viewer : Form
     {
@@ -43,7 +43,7 @@ namespace CBZ_Viewer
 
         private void Viewer_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Directory.Delete(CBZViewer.ComicExtractLocation + "\\" + comicBook.SeriesId, true);
+            Directory.Delete(MangaBu.ComicExtractLocation + "\\" + comicBook.SeriesId, true);
             // if (MainScreen.UserData.Settings.SaveLastPage)
             // {
             //     comicIssue.CurrentPage = currentPage + 1;
@@ -125,7 +125,7 @@ namespace CBZ_Viewer
         }
         private static void GLens()
         {
-            var f = new GLens()
+            var f = new ScanText()
             {
                 
             };

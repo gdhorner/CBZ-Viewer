@@ -1,6 +1,6 @@
-﻿namespace CBZ_Viewer
+﻿namespace MangaBu
 {
-    partial class CBZViewer
+    partial class MangaBu
     {
         /// <summary>
         /// Required designer variable.
@@ -59,15 +59,15 @@
             this.Open.Text = "Open";
             this.Open.Click += new System.EventHandler(this.OpenFile);
             // 
-            // CBZViewer
+            // MangaBu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.Menu);
             this.MainMenuStrip = this.Menu;
-            this.Name = "CBZViewer";
-            this.Text = "CBZ Viewer";
+            this.Name = "MangaBu";
+            this.Text = "MangaBu";
             this.Menu.ResumeLayout(false);
             this.Menu.PerformLayout();
             this.ResumeLayout(false);

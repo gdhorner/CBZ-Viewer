@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics;
 
-namespace CBZ_Viewer.Functions
+namespace MangaBu.Functions
 {
     public static class GlobalFunctions
     {

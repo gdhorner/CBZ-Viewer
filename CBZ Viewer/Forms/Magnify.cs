@@ -1,6 +1,6 @@
 ﻿using System.Drawing.Drawing2D;
 
-namespace CBZ_Viewer
+namespace MangaBu
 {
     public partial class Magnify : Form
     {

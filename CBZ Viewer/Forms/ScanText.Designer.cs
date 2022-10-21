@@ -1,6 +1,6 @@
-﻿namespace CBZ_Viewer
+﻿namespace MangaBu
 {
-    partial class GLens
+    partial class ScanText
     {
         /// <summary>
         /// Required designer variable.
@@ -30,7 +30,7 @@
         {
             this.SuspendLayout();
             // 
-            // GLens
+            // ScanText
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -39,10 +39,9 @@
             this.ClientSize = new System.Drawing.Size(1132, 597);
             this.Cursor = System.Windows.Forms.Cursors.Cross;
             this.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.Name = "GLens";
+            this.Name = "ScanText";
             this.Opacity = 0D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "GLens";
             this.TransparencyKey = System.Drawing.Color.Transparent;
             this.ResumeLayout(false);
 
