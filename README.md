@@ -1,4 +1,6 @@
-# MangaBu: Named after 学ぶ (ManaBu, to learn) is used to read Manga, primarily aimed at Japanese learners who are reading their Manga directly in the Japanese language.
+# MangaBu
+## ABOUT 
+Named after 学ぶ (ManaBu, to learn) is used to read Manga, primarily aimed at Japanese learners who are reading their Manga directly in the Japanese language.
 
 ## AUTHOR
 Gavin Horner
