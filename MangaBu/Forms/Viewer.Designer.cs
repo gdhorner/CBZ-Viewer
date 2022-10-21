@@ -76,6 +76,9 @@ namespace MangaBu
             this.pbPageImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbPageImage.TabIndex = 0;
             this.pbPageImage.TabStop = false;
+            this.pbPageImage.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pbPageImage_MouseDown);
+            this.pbPageImage.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pbPageImage_MouseMove);
+            this.pbPageImage.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pbPageImage_MouseUp);
             // 
             // pnlLeft
             // 

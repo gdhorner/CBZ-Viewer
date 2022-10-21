@@ -10,7 +10,6 @@ namespace MangaBu
         public int ZoomFactor { get; set; } = 2;
         public bool HideCursor { get; set; } = true;
         public bool AutoClose { get; set; } = true;
-        public bool NearestNeighborInterpolation { get; set; }
 
         public Magnify()
         {
@@ -65,6 +64,7 @@ namespace MangaBu
 
             Left = p.X - Width / 2;
             Top = p.Y - Height / 2;
+
         }
 
         protected override void OnMouseMove(MouseEventArgs e)
@@ -89,6 +89,7 @@ namespace MangaBu
 
         protected override void OnPaint(PaintEventArgs e)
         {
+
             if (mouseDown) SetLocation();
             else CopyScreen();
 
@@ -101,12 +102,9 @@ namespace MangaBu
             e.Graphics.ScaleTransform(ZoomFactor, ZoomFactor);
             e.Graphics.TranslateTransform(-pos.X - dX, -pos.Y - dY);
             e.Graphics.Clear(BackColor);
-
-            if (NearestNeighborInterpolation)
-            {
-                e.Graphics.InterpolationMode = InterpolationMode.NearestNeighbor;
-                e.Graphics.PixelOffsetMode = PixelOffsetMode.Half;
-            }
+            
+            e.Graphics.InterpolationMode = InterpolationMode.HighQualityBicubic;
+            e.Graphics.PixelOffsetMode = PixelOffsetMode.HighQuality;
 
             if (scrBmp != null) e.Graphics.DrawImage(scrBmp, 0, 0);
         }
